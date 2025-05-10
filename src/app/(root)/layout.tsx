@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import { Toaster } from "@/components/ui/sonner";
 import React, { ReactNode } from "react";
 
 const layout = ({ children }: { children: ReactNode }) => {
