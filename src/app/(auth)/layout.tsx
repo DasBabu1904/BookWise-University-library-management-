@@ -1,7 +1,15 @@
 import Image from "next/image";
 import React, { ReactNode } from "react";
+// import { auth } from "../../../auth";
+import { redirect } from "next/navigation";
+import { auth } from "../../../auth";
 
-const layout = ({ children }: { children: ReactNode }) => {
+const layout = async ({ children }: { children: ReactNode }) => {
+  const session = await auth();
+  if (session) {
+    // console.log("auth layout session");
+    redirect("/");
+  }
   return (
     <main className="auth-container  bg-gray-900 text-white">
       <section className="auth-form">
@@ -12,7 +20,6 @@ const layout = ({ children }: { children: ReactNode }) => {
           </div>
           <div>{children}</div>
         </div>
-       
       </section>
       <section className="auth-illustration">
         <Image

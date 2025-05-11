@@ -3,12 +3,12 @@
 import BookList from "@/components/BookList";
 import BookOverview from "@/components/BookOverview";
 import { sampleBooks } from "../../../constants";
-import { usersTable } from "@/database/schema";
-import { db } from "@/database/db";
+// import { usersTable } from "@/database/schema";
+// import { db } from "@/database/db";
 
 const Home = async () => {
-  const result = await db.select().from(usersTable);
-  console.log(JSON.stringify(result, null, 2));
+  // const result = await db.select().from(usersTable);
+  // console.log(JSON.stringify(result, null, 2));
 
   return (
     <div className="">

@@ -42,7 +42,7 @@ export const signUp = async (params: AuthCredentials) => {
   }
 
   const hashedPassword = await hash(password, 10);
-  return { success: true };
+
   try {
     await db.insert(usersTable).values({
       fullName,
@@ -52,6 +52,7 @@ export const signUp = async (params: AuthCredentials) => {
       universityCard,
     });
     await signInWithCredentials({ email, password });
+    return { success: true };
   } catch (error) {
     console.log(error, "Unsuccessful SignUP!");
     return { success: false, error: "Unsuccessful SignUP!" };
