@@ -4,7 +4,7 @@ import redis from "../database/redis";
 // Create a new ratelimiter, that allows 10 requests per 10 seconds
 const ratelimit = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(1, "1 m"),
+  limiter: Ratelimit.fixedWindow(1, "1 m"),
   analytics: true,
   /**
    * Optional prefix for the keys used in redis. This is useful if you want to share a redis
