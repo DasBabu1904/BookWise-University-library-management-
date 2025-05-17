@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@layer components {
+  .admin-container {
+    @apply flex w-[calc(100%-264px)] flex-1 flex-col bg-gray-300 p-5 sm:p-10;
+  }
+
+  /*----------------- sideBar class ------------------------*/
+  .admin-sidebar {
+    @apply sticky left-0 top-0 flex h-dvh flex-col justify-between bg-white px-5 pb-5 pt-10;
+  }
+  .admin-sidebar .logo {
+    @apply flex flex-row items-center gap-2 border-b border-dashed pb-10 max-md:justify-center;
+    /* border-primary-admin/20  */
+  }
+  .admin-sidebar .logo h1 {
+    @apply text-2xl font-semibold  max-md:hidden;
+  }
+  .admin-sidebar .user {
+    @apply my-8 flex w-full flex-row gap-2 rounded-full border border-gray-400 px-6 py-2 shadow-sm max-md:px-2;
+  }
+}
