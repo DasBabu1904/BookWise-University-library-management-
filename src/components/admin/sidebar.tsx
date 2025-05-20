@@ -60,13 +60,13 @@ const SideBar = ({ session }: { session: Session }) => {
           })}
         </div>
       </div>
-      <div className="user">
+      <div className="user flex">
         <Avatar className="">
           <AvatarFallback className="bg-fuchsia-400">
             {getInitials(session?.user?.name || "IN")}
           </AvatarFallback>
         </Avatar>
-        <div className=" h-py bg-gray-900 w-[2px] h-[40px] max-md:hidden"></div>
+
         <div className="flex flex-col max-md:hidden">
           <p>{session?.user?.name}</p>
           <p className="text-sm">{session?.user?.email}</p>
