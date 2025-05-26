@@ -41,7 +41,7 @@ interface Props {
   onFileChange: (filePath: string) => void;
 }
 
-const ImageUpload = ({
+const FileUpload = ({
   type,
   accept,
   placeholder,
@@ -116,8 +116,12 @@ const ImageUpload = ({
         }}
       >
         <Image src="/icons/upload.svg" alt="Upload" width={20} height={20} />
-        <p>{placeholder}</p>
-        {file && <p>{file.filePath}</p>}
+
+        {file ? (
+          <p className="text-black">{file.filePath}</p>
+        ) : (
+          <p className="text-black">{placeholder}</p>
+        )}
       </button>
 
       {progress > 0 && (
@@ -147,4 +151,4 @@ const ImageUpload = ({
   );
 };
 
-export default ImageUpload;
+export default FileUpload;

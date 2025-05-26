@@ -25,7 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "../../constants";
-import ImageUpload from "./FileUpload";
+import FileUpload from "./FileUpload";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -51,7 +51,7 @@ const AuthForm = <T extends FieldValues>({
 
   const handleSubmit: SubmitHandler<T> = async (data) => {
     const result = await onSubmit(data);
-    console.log(data);
+    console.log("--------------------------------------", result);
     if (result.success) {
       toast(
         `Success!\n ${
@@ -97,7 +97,7 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload
+                      <FileUpload
                         type="image"
                         accept="image/*"
                         placeholder="Upload your ID"

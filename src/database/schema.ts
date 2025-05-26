@@ -2,7 +2,6 @@ import {
   varchar,
   integer,
   pgTable,
-  serial,
   text,
   timestamp,
   uuid,

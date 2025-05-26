@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import FileUpload from "@/components/FileUpload";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -185,7 +186,17 @@ const BookForm = ({ type, ...book }: Props) => {
                 <FormLabel className="text-base font-normal text-gray-700">
                   Book Image
                 </FormLabel>
-                <FormControl className="">{/* File Upload */}</FormControl>
+                <FormControl className="">
+                  <FileUpload
+                    type="image"
+                    accept="image/*"
+                    placeholder="Upload a Book Cover"
+                    folder="books/cover"
+                    variant="light"
+                    onFileChange={field.onChange}
+                    value={field.value}
+                  />
+                </FormControl>
                 {/* <FormDescription>
                    This can be used for field description but we dont need this one in this project 
                   </FormDescription> */}
@@ -246,7 +257,17 @@ const BookForm = ({ type, ...book }: Props) => {
                 <FormLabel className="text-base font-normal text-gray-700">
                   Book Video
                 </FormLabel>
-                <FormControl className="">{/* File Upload */}</FormControl>
+                <FormControl className="">
+                  <FileUpload
+                    type="video"
+                    accept="video/*"
+                    placeholder="Upload a Book Review Video"
+                    folder="books/videos"
+                    variant="light"
+                    onFileChange={field.onChange}
+                    value={field.value}
+                  />
+                </FormControl>
                 {/* <FormDescription>
                    This can be used for field description but we dont need this one in this project 
                   </FormDescription> */}
