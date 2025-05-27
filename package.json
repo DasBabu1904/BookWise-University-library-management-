@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "seed:db": "npx tsx src/database/seed.ts",
     "db:generate": "npx drizzle-kit generate",
     "db:migrate": "npx drizzle-kit migrate",
-    "drizzle-sudio": "npx drizzle-kit studio"
+    "drizzle-studio": "npx drizzle-kit studio"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -28,6 +29,7 @@
     "drizzle-orm": "^0.43.1",
     "imagekit": "^6.0.0",
     "imagekitio-next": "^1.0.1",
+    "imagekitio-react": "^4.3.0",
     "lucide-react": "^0.506.0",
     "next": "15.3.1",
     "next-auth": "^5.0.0-beta.27",

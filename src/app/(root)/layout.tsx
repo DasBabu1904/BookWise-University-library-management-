@@ -1,12 +1,7 @@
 import Header from "@/components/header";
-import { Toaster } from "@/components/ui/sonner";
 import React, { ReactNode } from "react";
 import { auth } from "../../../auth";
 import { redirect } from "next/navigation";
-import { after } from "next/server";
-import { usersTable } from "@/database/schema";
-import { db } from "@/database/db";
-import { eq } from "drizzle-orm";
 
 const layout = async ({ children }: { children: ReactNode }) => {
   const session = await auth();

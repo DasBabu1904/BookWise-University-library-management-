@@ -7,7 +7,7 @@ const BookOverview = ({
   id,
   title,
   author,
-  genere,
+  genre,
   rating,
   coverUrl,
   coverColor,
@@ -28,7 +28,7 @@ const BookOverview = ({
           </p>
           <p>
             Category{" "}
-            <span className="font-semibold text-light-200">{genere}</span>
+            <span className="font-semibold text-light-200">{genre}</span>
           </p>
           <div className="flex flex-row gap-1">
             <Image

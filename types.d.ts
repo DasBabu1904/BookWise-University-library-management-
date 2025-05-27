@@ -2,7 +2,7 @@ interface Book {
   id: string;
   title: string;
   author: string;
-  genere: string;
+  genre: string;
   rating: number;
   coverUrl: string;
   coverColor: string;
@@ -25,7 +25,7 @@ interface AuthCredentials {
 interface BookParams {
   title: string;
   author: string;
-  genere: string;
+  genre: string;
   rating: number;
   coverUrl: string;
   coverColor: string;

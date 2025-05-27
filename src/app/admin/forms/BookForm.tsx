@@ -34,7 +34,7 @@ const BookForm = ({ type, ...book }: Props) => {
     defaultValues: {
       title: "",
       author: "",
-      genere: "",
+      genre: "",
       description: "",
       rating: 0,
       totalCopies: 0,
@@ -109,19 +109,19 @@ const BookForm = ({ type, ...book }: Props) => {
               </FormItem>
             )}
           />
-          {/* -----------------------------------------genere--------------------------------------------------- */}
+          {/* -----------------------------------------genre--------------------------------------------------- */}
           <FormField
             control={form.control}
-            name={"genere"}
+            name={"genre"}
             render={({ field }) => (
               <FormItem className="mt-3  flex flex-col gap-1">
                 <FormLabel className="text-base font-normal text-gray-700">
-                  Genere
+                  genre
                 </FormLabel>
                 <FormControl className="">
                   <Input
                     required
-                    placeholder="Book genere"
+                    placeholder="Book genre"
                     {...field}
                     className="book-form_input bg-gray-200 placeholder:text-gray-600"
                   />

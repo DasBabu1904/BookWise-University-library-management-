@@ -37,7 +37,7 @@ export const books = pgTable("books_table", {
   id: uuid("id").notNull().primaryKey().defaultRandom().unique(),
   title: varchar("title", { length: 255 }).notNull(),
   author: varchar("author", { length: 255 }).notNull(),
-  genere: varchar("genere", { length: 255 }).notNull(),
+  genre: varchar("genre", { length: 255 }).notNull(),
   rating: integer("rating").notNull(),
   coverUrl: text("cover_url").notNull(),
   coverColor: varchar("cover_color", { length: 7 }).notNull(),

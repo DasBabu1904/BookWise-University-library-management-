@@ -2,7 +2,7 @@ CREATE TABLE "books_table" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"title" varchar(255) NOT NULL,
 	"author" varchar(255) NOT NULL,
-	"genere" varchar(255) NOT NULL,
+	"genre" varchar(255) NOT NULL,
 	"rating" integer NOT NULL,
 	"cover_url" text NOT NULL,
 	"cover_color" varchar(7) NOT NULL,

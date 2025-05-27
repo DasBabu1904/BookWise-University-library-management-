@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 const BookCard = ({
   id,
   title,
-  genere,
+  genre,
   coverColor,
   coverUrl,
   isLoanedBook = false,
@@ -16,10 +16,10 @@ const BookCard = ({
   return (
     <li className={cn(isLoanedBook && "flex flex-col items-center")}>
       <Link href={`/books/${id}`}>
-        <BookCover coverColor={coverColor} coverImage={coverUrl} />
+        <BookCover coverColor={coverColor} coverUrl={coverUrl} />
         <div className={cn("mt-4", !isLoanedBook && "sm:max-w-40 max-w-28")}>
           <p className="book-title">{title}</p>
-          <p className="book-genre">{genere}</p>
+          <p className="book-genre">{genre}</p>
         </div>
 
         {isLoanedBook && (
