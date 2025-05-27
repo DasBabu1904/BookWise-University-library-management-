@@ -14,23 +14,23 @@ const layout = async ({ children }: { children: ReactNode }) => {
     // console.log(!session);
     redirect("/sign-in");
   }
-  after(async () => {
-    if (!session?.user?.id) redirect("/sign-in");
+  // after(async () => {
+  //   if (!session?.user?.id) redirect("/sign-in");
 
-    //get the user and check if the last activity was today then dont update it
-    const user = await db
-      .select()
-      .from(usersTable)
-      .where(eq(usersTable.id, session?.user?.id))
-      .limit(1);
+  //   //get the user and check if the last activity was today then dont update it
+  //   const user = await db
+  //     .select()
+  //     .from(usersTable)
+  //     .where(eq(usersTable.id, session?.user?.id))
+  //     .limit(1);
 
-    if (user[0].lastActivityDate === new Date().toString().slice(0, 10)) return;
+  //   if (user[0].lastActivityDate === new Date().toString().slice(0, 10)) return;
 
-    await db
-      .update(usersTable)
-      .set({ lastActivityDate: new Date().toString().slice(0, 10) })
-      .where(eq(usersTable.id, session?.user?.id));
-  });
+  //   await db
+  //     .update(usersTable)
+  //     .set({ lastActivityDate: new Date().toString().slice(0, 10) })
+  //     .where(eq(usersTable.id, session?.user?.id));
+  // });
   return (
     <main className="root-container text-white">
       <div className="mx-auto max-w-7xl">

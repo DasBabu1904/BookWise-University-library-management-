@@ -25,4 +25,9 @@
   .book-form_btn {
     @apply min-h-14 w-full text-white;
   }
+
+  /* color picker */
+  .hex-input {
+    @apply h-full flex-1 bg-transparent  outline-none;
+  }
 }

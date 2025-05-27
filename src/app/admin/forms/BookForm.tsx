@@ -20,13 +20,15 @@ import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/FileUpload";
+import ColorPicker from "@/components/admin/ColorPicker";
+import createBook from "@/lib/admin/actions/books";
+import { toast } from "sonner";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
 }
 
 const BookForm = ({ type, ...book }: Props) => {
-  const router = useRouter();
   const form = useForm<z.infer<typeof bookSchema>>({
     resolver: zodResolver(bookSchema),
     defaultValues: {
@@ -43,7 +45,16 @@ const BookForm = ({ type, ...book }: Props) => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof bookSchema>) => {};
+  const router = useRouter();
+  const onSubmit = async (values: z.infer<typeof bookSchema>) => {
+    const result = await createBook(values);
+    if (result.success) {
+      alert("Book added successfully !!!");
+      router.push(`/admin/books/${result.data.id}`);
+    } else {
+      alert("failed to create the book");
+    }
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -177,6 +188,7 @@ const BookForm = ({ type, ...book }: Props) => {
               </FormItem>
             )}
           />
+
           {/* ----------------------------------------coverUrl---------------------------------------------------- */}
           <FormField
             control={form.control}
@@ -208,13 +220,18 @@ const BookForm = ({ type, ...book }: Props) => {
           {/* --------------------------------------------coverColor------------------------------------------------ */}
           <FormField
             control={form.control}
-            name={"title"}
+            name={"coverColor"}
             render={({ field }) => (
               <FormItem className="mt-3  flex flex-col gap-1">
                 <FormLabel className="text-base font-normal text-gray-700">
                   Cover Color
                 </FormLabel>
-                <FormControl className="">{/* file upload */}</FormControl>
+                <FormControl className="">
+                  <ColorPicker
+                    onPickerChange={field.onChange}
+                    value={field.value}
+                  />
+                </FormControl>
                 {/* <FormDescription>
                    This can be used for field description but we dont need this one in this project 
                   </FormDescription> */}
